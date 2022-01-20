@@ -6,6 +6,8 @@ lazy val root = (project in file("."))
   .settings(
     name := "amqp-reconnect"
   )
+  .configs(IntegrationTest)
+  .settings(Defaults.itSettings)
 
 val AkkaVersion = "2.6.14"
 
@@ -23,7 +25,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
   "com.lightbend.akka" %% "akka-stream-alpakka-amqp" % "3.0.4",
   "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
-  "org.testcontainers" % "rabbitmq" % "1.16.2" % "test",
-  "org.scalatest" %% "scalatest" % "3.2.10" % "test"
+  "org.testcontainers" % "rabbitmq" % "1.16.2" % "it",
+  "org.scalatest" %% "scalatest" % "3.2.10" % "it"
 
 )
