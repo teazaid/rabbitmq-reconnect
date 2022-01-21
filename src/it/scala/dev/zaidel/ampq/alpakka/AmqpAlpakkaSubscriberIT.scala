@@ -89,7 +89,7 @@ class AmqpAlpakkaSubscriberIT extends AsyncWordSpec with BeforeAndAfterAll with 
       private def restartRabbitMQContainer(): Unit = {
         info("Restarting RabbitMQ container:")
         // block current thread with waitFor,
-        // otherwise there is a chance that to process all the messages before container is restarted.
+        // otherwise there is a chance to process all the messages before container is restarted.
         Runtime.getRuntime.exec(s"docker restart ${container.getContainerId}").waitFor()
         ()
       }
