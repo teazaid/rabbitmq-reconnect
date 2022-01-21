@@ -63,7 +63,7 @@ class AmqpAlpakkaSubscriberIT extends AsyncWordSpec with BeforeAndAfterAll with 
   }
 
   s"produce ${amountOfMessagesToSend} messages with subscriber restart" in {
-    // Promise which which will completed when the last published message is consumed
+    // Promise which which will be completed when the last published message is consumed
     val processedLastMessage = Promise[Unit]
     val consumer = new Consumer[Future, Message] {
       val consumedMessageCount = new LongAdder()
